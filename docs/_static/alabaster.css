@@ -30,7 +30,7 @@ body {
 
 
 div.document {
-    width: 940px;
+    width: 100%;
     margin: 30px auto 0 auto;
 }
 
@@ -64,7 +64,7 @@ div.body > .section {
 }
 
 div.footer {
-    width: 940px;
+    width: 100%;
     margin: 20px auto 30px auto;
     font-size: 14px;
     color: #888;
@@ -80,10 +80,6 @@ p.caption {
     font-size: inherit;
 }
 
-
-div.relations {
-    display: none;
-}
 
 
 div.sphinxsidebar a {
@@ -524,7 +520,7 @@ a:hover tt, a:hover code {
         display: block;
         float: none;
         width: 102.5%;
-        margin: 50px -30px -20px -30px;
+        margin: -20px -30px 20px -30px;
         padding: 10px 20px;
         background: #333;
         color: #FFF;
@@ -579,6 +575,12 @@ a:hover tt, a:hover code {
 
     .github {
         display: none;
+    }
+}
+@media screen and (min-width: 876px) {
+    div.sphinxsidebar {
+        position: fixed;
+        margin-left: 0;
     }
 }
 

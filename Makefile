@@ -19,4 +19,3 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	rm -Rf docs
 	mv "$(BUILDDIR)/html" docs
-	touch docs/.nojekyll
