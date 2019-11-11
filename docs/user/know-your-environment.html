@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Know Your Environment &#8212; HwH  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="First Steps with Habu" href="first-steps.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">HwH</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Know Your Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#public-ip">Public IP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connection-capabilities">Connection Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-interfaces">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#host-information">Host Information</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="first-steps.html" title="previous chapter">First Steps with Habu</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="know-your-environment">
+<h1>Know Your Environment<a class="headerlink" href="#know-your-environment" title="Permalink to this headline">¶</a></h1>
+<p>The first step that you must execute to learn about Habu is start to know your environment
+(operating system, network connection, etc.)</p>
+<p>This can be acomplished with the following tasks.</p>
+<div class="section" id="public-ip">
+<h2>Public IP<a class="headerlink" href="#public-ip" title="Permalink to this headline">¶</a></h2>
+<p>It’s easy to use operating system commands to know your network interface address, but
+your public IP is almost never the same that your network interface IP, so, you can use
+the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.ip
+80.219.53.185
+</pre></div>
+</div>
+<div class="section" id="how-it-works">
+<h3>How it works?<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h3>
+<p>It uses the <a class="reference external" href="https://www.ipify.org/">https://www.ipify.org/</a> service to know what is the IP address that the service
+sees as your public IP address.</p>
+<p>Basically, makes a request to <a class="reference external" href="https://api.ipify.org">https://api.ipify.org</a></p>
+</div>
+</div>
+<div class="section" id="connection-capabilities">
+<h2>Connection Capabilities<a class="headerlink" href="#connection-capabilities" title="Permalink to this headline">¶</a></h2>
+<p>If you’re using your work or home internet connection, probably you have unrestricted
+access to any IP or service that is available on internet.</p>
+<p>But, if you’re using any network that you don’t know well, maybe your internet access can
+be limited by filtering policies.</p>
+<p>To know what services you can access, you can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.contest
+IP:    True
+DNS:   True
+FTP:   True
+HTTP:  True
+HTTPS: True
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>How it works?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Tries to make connections to popular services to test if the service it’s allowed.</p>
+<p>The current version uses the following services:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Protocol</th>
+<th class="head">Service</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DNS</td>
+<td>Google (8.8.8.8, 8.8.4,4)</td>
+</tr>
+<tr class="row-odd"><td>FTP</td>
+<td>Debian (ftp.debian.org), RedHat (ftp.redhat.com)</td>
+</tr>
+<tr class="row-even"><td>HTTP</td>
+<td>Google (<a class="reference external" href="http://www.google.com">http://www.google.com</a>), IBM (<a class="reference external" href="http://www.ibm.com">http://www.ibm.com</a>)</td>
+</tr>
+<tr class="row-odd"><td>HTTPS</td>
+<td>Google (<a class="reference external" href="https://www.google.com">https://www.google.com</a>), IBM (<a class="reference external" href="https://www.ibm.com">https://www.ibm.com</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Please, consider that habu.contest only checks if the services is not completly
+blocked. But, maybe, you can access to Debian and RedHat FTP servers, but some
+other FTP servers are restricted.</p>
+</div>
+</div>
+<div class="section" id="network-interfaces">
+<h2>Network Interfaces<a class="headerlink" href="#network-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>If you want to list your network cards and their addresses (IPv4, IPv6, MAC), you
+can execute the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.ip.internal
+{
+    &quot;lo&quot;: {
+        &quot;ipv4&quot;: [
+            {
+                &quot;addr&quot;: &quot;127.0.0.1&quot;,
+                &quot;netmask&quot;: &quot;255.0.0.0&quot;,
+                &quot;peer&quot;: &quot;127.0.0.1&quot;
+            }
+        ],
+        &quot;link_layer&quot;: [
+            {
+                &quot;addr&quot;: &quot;00:00:00:00:00:00&quot;,
+                &quot;peer&quot;: &quot;00:00:00:00:00:00&quot;
+            }
+        ],
+        &quot;ipv6&quot;: [
+            {
+                &quot;addr&quot;: &quot;::1&quot;,
+                &quot;netmask&quot;: &quot;ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128&quot;
+            }
+        ]
+    },
+    // The other network interfaces... //
+</pre></div>
+</div>
+<p>This can be used not only to list your NICs, but also to know if habu is
+detecting correctly all your network interfaces.</p>
+</div>
+<div class="section" id="host-information">
+<h2>Host Information<a class="headerlink" href="#host-information" title="Permalink to this headline">¶</a></h2>
+<p>To know some characteristics of your host, you can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.host
+{
+    &quot;kernel&quot;: [
+        &quot;Linux&quot;,
+        &quot;p&quot;,
+        &quot;5.2.0-kali3-amd64&quot;,
+        &quot;#1 SMP Debian 5.2.17-1kali1 (2019-09-27)&quot;,
+        &quot;x86_64&quot;,
+        &quot;&quot;
+    ],
+    &quot;distribution&quot;: [
+        &quot;Kali&quot;,
+        &quot;kali-rolling&quot;,
+        &quot;kali-rolling&quot;
+    ],
+    &quot;libc&quot;: [
+        &quot;glibc&quot;,
+        &quot;2.29&quot;
+    ],
+    &quot;arch&quot;: &quot;x86_64&quot;,
+    &quot;python_version&quot;: &quot;3.7.5rc1&quot;,
+    &quot;os_name&quot;: &quot;Linux&quot;,
+    &quot;static_hostname&quot;: &quot;p&quot;,
+    &quot;cpu&quot;: &quot;&quot;,
+    &quot;fqdn&quot;: &quot;p&quot;
+}
+</pre></div>
+</div>
+<p>This is basic info is really useful when you need to do some troubleshooting, or
+submit software issues.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Fabian Martinez Portantier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="../_sources/user/know-your-environment.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

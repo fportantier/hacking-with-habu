@@ -13,42 +13,73 @@ Hacking with Habu
     :target: https://pypi.org/project/habu/
 
 
-The reason to develop Habu is (mainly) teach and learn about Python and Hacking.
+.. _introduction:
 
-Most of the functions implemented helps with some tasks for Ethical Hacking and
-Penetration Testing.
+*"An open sourced set of simple tools to learn about hacking"*
 
-The implementations are intended to be understandable for who wants to read the
-source code and learn from that.
+Some key aspects:
 
-Some techniques implemented in the current version are:
+1. Command line applications
+2. Developed in Python
+3. Designed to be simple to use and understand
 
-* ARP Poisoning
-* ARP Sniffing
-* DHCP Discover
-* DHCP Starvation
-* Fake FTP Server
-* LAND Attack
-* SNMP Cracking
-* Subdomains Identification
-* SSL/TLS Certificate Cloner
-* SYN Flooding
-* TCP Flags Analysis
-* TCP ISN Analysis
-* TCP Port Scan
-* Username check on social networks
-* Virtual Hosts Identification
-* Web Techonologies Identification
 
-The development of this software is supported by Securetia SRL (https://www.securetia.com/)
+Development
+-----------
+
+If you want to collaborate with the project or simply learn how Habu is developed,
+read the "Development Guide".
+
+
+Operating System Compatibility and Issues
+-----------------------------------------
+
+Habu is developed with GNU/Linux systems in mind, but with a lot of efforts to make
+it compatible with any Unix-like system and even with Microsoft Windows.
+
+Please, if you find that some tool doesn't work with your OS, don't hesitate to
+report the issue through Github (https://github.com/portantier/habu/issues).
+
+
+Permissions
+-----------
+
+Most of the Habu tools need elevated permissions to run correctly, so, it's recommended
+to run the tools with the root user (or use sudo/doas) on Unix, or with elevated
+permissions through UAC on Microsoft Windows.
+
+
+Quick Installation or Upgrade
+-----------------------------
+
+::
+
+   $ pip3 install --upgrade habu
+   $ habu.version
+   0.1.30
+
+
+For detailed (or alternative) installation steps, read "Detailed Installation" section.
+
+
+This Guide
+----------
+
+The purpouse of this guide is not only learn how to use Habu, but also learn a lot of
+hacking concepts.
+
+Feel free to jump to any section of your interest but, if you want to learn from the most
+basic concepts, read this guide in an ordered way.
+
 
 Usage Videos
 ------------
 
 The following Youtube Playlist has videos that shows the installation
-and usage:
+and usage and various Habu tools:
 
 https://www.youtube.com/watch?v=rgp9seLLyqE&list=PL4HZnX8VnFXqSvNw7x-bXOn0dgxNdfnVD
+
 
 Telegram Group
 --------------
@@ -56,60 +87,93 @@ Telegram Group
 If you want to discuss some Habu features, possible improvements, etc,
 you can use the Habu Telegram Group: https://t.me/python_habu
 
-Issues and pull requests must be sent to github repo:
-https://github.com/portantier/habu
 
 The User Guide
 --------------
 
-This part of the documentation, begins with some background information about Habu,
-and how to install it.
+This part of the documentation, guides you through the usage of Habu tools and teachs
+you a lot of concepts about hacking.
 
 .. toctree::
    :maxdepth: 2
 
-   user/intro
-   user/install
+   user/first-steps
+   user/know-your-environment
+   user/data-manipulation
+
+How the contents will be (draft)
+
+- Introduction
+- Development Overview
+- Installation
+- Configuration
+- Basic Command Sample
+- Knowledge of your environment
+   - public ip
+   - interfaces
+- Command Result Management
+- Domain Information
+- Subdomain Discovery
+- Web Technologies Enumeration
+- Integration With External Services
+   - AsyDNS
+   - Shodan
+   - VirusTotal
+- Address Resolution Protocol (ARP)
+   - ping
+   - sniff
+   - poison
+- Classic Network Attacks
+   - land
+   - synflood
+- Enumeration
+- Extracting Data From Logs
+- Cryptography Functions
+   - Hash functions
+   - Hash identification
+   - Fernet
+   - XOR
+   - Group Policy Preferences (GPP) Decryption
+   - Broken Cryptography Decrypt
+      - Cisco 7
+- Nmap Scan Parsing
+- Other Hacking Techniques 
+   - Crack SNMP
+   - Crack Luhn
+   - DHCP Starvation
+   - DHCP Discover
+   - TCP Flags
+   - TCP Scan
+   - ISN variation detection
+   - Protocol Scan
+   - Social Network Username Discovery
+   - Virtual Hosting Discovery
+   - Web Headers
+   - Data about IP Addresses
+   - Data about Domain Names
+Protocol Servers
+   - Fake FTP Server
 
 
-Commands Usage Guide
---------------------
-
-This part of the documentation, tells you how to use each command in the toolkit.
-
-.. toctree::
-   :maxdepth: 2
-
-   commands/arp.ping
 
 
-Library Usage Guide
--------------------
 
-This part of the documentation, tells you how to use the habu library to integrate
-the functionality into your own software.
-
-.. toctree::
-   :maxdepth: 2
-
-   library/*
- 
-
- 
-
-The Contributor Guide
+The Development Guide
 ---------------------
 
-If you want to contribute to the project, this part of the documentation is for 
-you.
+This part of the documentation explains three things:
 
-.. toctree::
-   :maxdepth: 3
+1. How Habu is developed
+2. How Habu can be used to develop other tools
+3. How you can contribute with the project
 
-   contributing
 
-There are no more guides. You are now guideless.
-Good luck.
+Command Reference
+-----------------
+
+This part of the documentation contains the complete help text of each tool and is the
+recommended source of information if you want to know how to use a specific tool.
+
 
 Indices and tables
 ==================
