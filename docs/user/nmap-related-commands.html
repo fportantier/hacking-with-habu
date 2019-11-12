@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nmap Related Commands &#8212; HwH  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Configuration Management" href="configuration-management.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">HwH</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-manipulation.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration-management.html">Configuration Management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nmap Related Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scan-result-parsing">Scan Result Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ports-outside-nmap">Ports Outside Nmap</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="configuration-management.html" title="previous chapter">Configuration Management</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nmap-related-commands">
+<h1>Nmap Related Commands<a class="headerlink" href="#nmap-related-commands" title="Permalink to this headline">¶</a></h1>
+<p>Nmap (<a class="reference external" href="https://nmap.org">https://nmap.org</a>) is the most known hacking tool, so:</p>
+<ol class="arabic simple">
+<li>You must know how to use Nmap</li>
+<li>You must use Nmap</li>
+</ol>
+<p>Please, if you don’t know Nmap, read the documentation, it’s awesome: <a class="reference external" href="https://nmap.org/book/man.html">https://nmap.org/book/man.html</a></p>
+<p>Habu comes with some tools that provides integrations with Nmap and has some
+helpful functions.</p>
+<div class="section" id="scan-result-parsing">
+<h2>Scan Result Parsing<a class="headerlink" href="#scan-result-parsing" title="Permalink to this headline">¶</a></h2>
+<p>If you have an Nmap scan result (in XML, gnmap or nmap format), you can use some habu.nmap.* tools
+to parse these files and obtain information about them.</p>
+<div class="section" id="scanned-ports">
+<h3>Scanned Ports<a class="headerlink" href="#scanned-ports" title="Permalink to this headline">¶</a></h3>
+<p>The command habu.nmap.ports gives you the list of ports that was scanned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.nmap.ports /tmp/scan.nmap
+21,22,23,25,80,110,143,443,445,3389
+</pre></div>
+</div>
+<p>This can be helpful if you want to run a new scan, but with different options.</p>
+</div>
+<div class="section" id="open-ports">
+<h3>Open Ports<a class="headerlink" href="#open-ports" title="Permalink to this headline">¶</a></h3>
+<p>The command habu.nmap.open shows the ports that has been result open for the nmap scan.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.nmap.open /tmp/scan.nmap
+80,443
+</pre></div>
+</div>
+<p>This can be helpful to the same reasons has the habu.nmap.ports.</p>
+</div>
+</div>
+<div class="section" id="ports-outside-nmap">
+<h2>Ports Outside Nmap<a class="headerlink" href="#ports-outside-nmap" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, you need to expose a port to the whole internet on your server or another device.</p>
+<p>They’re a lot of security recommendations about that, but one quick thing you can do is open a port
+that is not easy detected by the hundred scanners that are constantly probed to open ports.</p>
+<p>Because most of the scanners are based on Nmap (or are Nmap), it’s a good idea to use a port that
+is not scanned by Nmap in the default configurations.</p>
+<p>Obviously, Nmap can scan the 65535 possible ports, but that is not the case in the grand part of
+the scans launched on internet.</p>
+<p>You can use the following command to obtain a port that is not listed on the file ‘/usr/share/nmap/nmap-services’,
+which is the file used to define what ports are scanned if not specific ports are passed with the ‘-p’ option.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.nmap.excluded
+10482
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Fabian Martinez Portantier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="../_sources/user/nmap-related-commands.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

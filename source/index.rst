@@ -101,18 +101,13 @@ you a lot of concepts about hacking.
    user/know-your-environment
    user/data-manipulation
    user/configuration-management
+   user/nmap-related-commands
 
-How the contents will be (draft)
+TODO:
 
-- Introduction
 - Development Overview
-- Installation
-- Configuration
-- Basic Command Sample
-- Knowledge of your environment
-   - public ip
-   - interfaces
-- Command Result Management
+- Installation (detailed)
+- Nmap Scan Parsing
 - Domain Information
 - Subdomain Discovery
 - Web Technologies Enumeration
@@ -137,7 +132,6 @@ How the contents will be (draft)
    - Group Policy Preferences (GPP) Decryption
    - Broken Cryptography Decrypt
       - Cisco 7
-- Nmap Scan Parsing
 - Other Hacking Techniques 
    - Crack SNMP
    - Crack Luhn

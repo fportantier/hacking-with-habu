@@ -44,8 +44,8 @@ report the issue through Github (https://github.com/portantier/habu/issues).
 Permissions
 -----------
 
-Most of the Habu tools need elevated permissions to run correctly, so, it's recommended
-to run the tools with the root user (or use sudo/doas) on Unix, or with elevated
+Some of the tools need elevated permissions to run correctly, so, it's recommended
+to run these tools with the root user (or use sudo/doas) on Unix, or with elevated
 permissions through UAC on Microsoft Windows.
 
 
@@ -101,18 +101,13 @@ you a lot of concepts about hacking.
    user/know-your-environment
    user/data-manipulation
    user/configuration-management
+   user/nmap-related-commands
 
-How the contents will be (draft)
+TODO:
 
-- Introduction
 - Development Overview
-- Installation
-- Configuration
-- Basic Command Sample
-- Knowledge of your environment
-   - public ip
-   - interfaces
-- Command Result Management
+- Installation (detailed)
+- Nmap Scan Parsing
 - Domain Information
 - Subdomain Discovery
 - Web Technologies Enumeration
@@ -137,7 +132,6 @@ How the contents will be (draft)
    - Group Policy Preferences (GPP) Decryption
    - Broken Cryptography Decrypt
       - Cisco 7
-- Nmap Scan Parsing
 - Other Hacking Techniques 
    - Crack SNMP
    - Crack Luhn

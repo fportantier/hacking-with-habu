@@ -42,6 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="user/know-your-environment.html">Know Your Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user/data-manipulation.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user/configuration-management.html">Configuration Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/nmap-related-commands.html">Nmap Related Commands</a></li>
 </ul>
 
 <div class="relations">
@@ -95,8 +96,8 @@ report the issue through Github (<a class="reference external" href="https://git
 </div>
 <div class="section" id="permissions">
 <h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
-<p>Most of the Habu tools need elevated permissions to run correctly, so, it’s recommended
-to run the tools with the root user (or use sudo/doas) on Unix, or with elevated
+<p>Some of the tools need elevated permissions to run correctly, so, it’s recommended
+to run these tools with the root user (or use sudo/doas) on Unix, or with elevated
 permissions through UAC on Microsoft Windows.</p>
 </div>
 <div class="section" id="quick-installation-or-upgrade">
@@ -155,25 +156,18 @@ you a lot of concepts about hacking.</p>
 <li class="toctree-l2"><a class="reference internal" href="user/configuration-management.html#storage">Storage</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="user/nmap-related-commands.html">Nmap Related Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/nmap-related-commands.html#scan-result-parsing">Scan Result Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/nmap-related-commands.html#ports-outside-nmap">Ports Outside Nmap</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<p>How the contents will be (draft)</p>
+<p>TODO:</p>
 <ul class="simple">
-<li>Introduction</li>
 <li>Development Overview</li>
-<li>Installation</li>
-<li>Configuration</li>
-<li>Basic Command Sample</li>
-<li><dl class="first docutils">
-<dt>Knowledge of your environment</dt>
-<dd><ul class="first last">
-<li>public ip</li>
-<li>interfaces</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>Command Result Management</li>
+<li>Installation (detailed)</li>
+<li>Nmap Scan Parsing</li>
 <li>Domain Information</li>
 <li>Subdomain Discovery</li>
 <li>Web Technologies Enumeration</li>
@@ -228,7 +222,6 @@ you a lot of concepts about hacking.</p>
 </dd>
 </dl>
 </li>
-<li>Nmap Scan Parsing</li>
 <li><dl class="first docutils">
 <dt>Other Hacking Techniques</dt>
 <dd><ul class="first last">
