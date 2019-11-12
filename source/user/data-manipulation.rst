@@ -169,6 +169,24 @@ Supose that you only want to get the private IP addresses, you can use the follo
 
 You can pipe the commands much times has you need, to make more filterings.
 
+
+Available Filters
+.................
+
+- 'gt' (greater than)
+- 'lt' (less than)
+- 'eq' (equal to)
+- 'ne' (not equal to)
+- 'ge' (greater or equal than)
+- 'le' (less or equal than)
+- 'in' (in the following comma separated list of items)
+- 'contains' (contains this string)
+- 'defined' (the value is defined)
+- 'undefined' (the value is not defined)
+- 'true': (the value is True)
+- 'false': (the value is False)
+
+
 **Note:** The command habu.data.filter can be used to filter any JSON formated text, not only the
 outputs that have been produced by another Habu command.
 
