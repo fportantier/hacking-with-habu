@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data Manipulation &#8212; HwH  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Know Your Environment" href="know-your-environment.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">HwH</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction">Data Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-enrichment">Data Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-filtering">Data Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-selection">Data Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="know-your-environment.html" title="previous chapter">Know Your Environment</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-manipulation">
+<h1>Data Manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this headline">¶</a></h1>
+<p>One key aspect of Habu is that it’s inspired on the following Unix phisolophy concept:</p>
+<p><em>“Write programs to handle text streams, because that is a universal interface.”</em></p>
+<p>You can manipulate text data with a lot of Unix well known tools, like sed, awk and grep,
+but Habu has some tools that can do other specific things.</p>
+<div class="section" id="data-extraction">
+<h2>Data Extraction<a class="headerlink" href="#data-extraction" title="Permalink to this headline">¶</a></h2>
+<p>One thing that you will need to do a lot of times it’s extract information from text streams,
+like IP addresses, domain names, etc.</p>
+<p>You can use the awesome “grep” tool (<a class="reference external" href="http://man7.org/linux/man-pages/man1/grep.1.html">http://man7.org/linux/man-pages/man1/grep.1.html</a>) for that,
+but you need to know exactly wich regular expression (<a class="reference external" href="https://en.wikipedia.org/wiki/Regular_expression">https://en.wikipedia.org/wiki/Regular_expression</a>)
+do you need for each case.</p>
+<p>Also, some data extraction tasks can’t be only done with regular expresions (like validate if a
+domain exists).</p>
+<p>For the data extraction process, you can use the habu.data.extract.* tools, that are the following:</p>
+<ul class="simple">
+<li>habu.data.extract.ipv4</li>
+<li>habu.data.extract.ipv6</li>
+<li>habu.data.extract.domain</li>
+<li>habu.data.extract.fqdn</li>
+<li>habu.data.extract.email</li>
+</ul>
+<p>A simple example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4
+181.143.135.154
+192.168.0.128
+152.118.223.187
+181.12.112.78
+181.22.122.130
+181.22.122.130
+172.16.5.14
+200.125.122.20
+</pre></div>
+</div>
+<p>Probably, you will see a lot of repeated results (like in the example above). To show each record only
+one time, you can use the awesome “sort” tool, with the “-u” (unique) parameter, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4 | sort -u
+152.118.223.187
+172.16.5.14
+181.12.112.78
+181.143.135.154
+181.22.122.130
+192.168.0.128
+200.125.122.20
+</pre></div>
+</div>
+<p>For convenience, the habu.data.extract.* commands support the ‘-u’ option, that does the same:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4 -u
+152.118.223.187
+172.16.5.14
+181.12.112.78
+181.143.135.154
+181.22.122.130
+192.168.0.128
+200.125.122.20
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-enrichment">
+<h2>Data Enrichment<a class="headerlink" href="#data-enrichment" title="Permalink to this headline">¶</a></h2>
+<p>Now, you have a list of IP addresses that appears in the file ‘logfile.txt’. But, possibly, you need
+to get more information about each item, so, you can use the command habu.data.enrich, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4 -u | habu.data.enrich
+[
+ // LINES ABOVE REMOVED FOR CLARITY //
+ {
+     &quot;item&quot;: &quot;181.22.122.130&quot;,
+     &quot;family&quot;: &quot;ipv4_address&quot;,
+     &quot;is_multicast&quot;: false,
+     &quot;is_global&quot;: true,
+     &quot;is_unspecified&quot;: false,
+     &quot;is_reserved&quot;: false,
+     &quot;is_loopback&quot;: false,
+     &quot;is_link_local&quot;: false
+ },
+ {
+     &quot;item&quot;: &quot;192.168.0.128&quot;,
+     &quot;family&quot;: &quot;ipv4_address&quot;,
+     &quot;is_multicast&quot;: false,
+     &quot;is_global&quot;: false,
+     &quot;is_unspecified&quot;: false,
+     &quot;is_reserved&quot;: false,
+     &quot;is_loopback&quot;: false,
+     &quot;is_link_local&quot;: false
+ },
+ {
+     &quot;item&quot;: &quot;200.125.122.20&quot;,
+     &quot;family&quot;: &quot;ipv4_address&quot;,
+     &quot;is_multicast&quot;: false,
+     &quot;is_global&quot;: true,
+     &quot;is_unspecified&quot;: false,
+     &quot;is_reserved&quot;: false,
+     &quot;is_loopback&quot;: false,
+     &quot;is_link_local&quot;: false
+ }
+]
+</pre></div>
+</div>
+<p>Now, you have a JSON formated list of items, each one with additional information.</p>
+<p>On the current version, Habu supports the following item families:</p>
+<ul class="simple">
+<li>ipv4_address</li>
+<li>ipv4_network</li>
+<li>ipv6_address</li>
+<li>ipv6_network</li>
+</ul>
+<p>More families can be added on next versions.</p>
+</div>
+<div class="section" id="data-filtering">
+<h2>Data Filtering<a class="headerlink" href="#data-filtering" title="Permalink to this headline">¶</a></h2>
+<p>With the enrichment done in the later step, we can use the command habu.data.filter to
+take only the items in which we are interested.</p>
+<p>Supose that you only want to get the private IP addresses, you can use the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4 -u | habu.data.enrich | habu.data.filter is_global false
+[
+    {
+        &quot;item&quot;: &quot;172.16.5.14&quot;,
+        &quot;family&quot;: &quot;ipv4_address&quot;,
+        &quot;is_multicast&quot;: false,
+        &quot;is_global&quot;: false,
+        &quot;is_unspecified&quot;: false,
+        &quot;is_reserved&quot;: false,
+        &quot;is_loopback&quot;: false,
+        &quot;is_link_local&quot;: false
+    },
+    {
+        &quot;item&quot;: &quot;192.168.0.128&quot;,
+        &quot;family&quot;: &quot;ipv4_address&quot;,
+        &quot;is_multicast&quot;: false,
+        &quot;is_global&quot;: false,
+        &quot;is_unspecified&quot;: false,
+        &quot;is_reserved&quot;: false,
+        &quot;is_loopback&quot;: false,
+        &quot;is_link_local&quot;: false
+    }
+]
+</pre></div>
+</div>
+<p>You can pipe the commands much times has you need, to make more filterings.</p>
+<p><strong>Note:</strong> The command habu.data.filter can be used to filter any JSON formated text, not only the
+outputs that have been produced by another Habu command.</p>
+</div>
+<div class="section" id="data-selection">
+<h2>Data Selection<a class="headerlink" href="#data-selection" title="Permalink to this headline">¶</a></h2>
+<p>To finish, maybe you need to select only the value of one field of each item, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat logfile.txt | habu.data.extract.ipv4 -u | habu.data.enrich | habu.data.filter is_global false | habu.data.select item
+172.16.5.14
+192.168.0.128
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>And thats all, with some simple commands, you’ve made the following steps:</p>
+<ol class="arabic simple">
+<li>Extract the IPv4 addresses from a text file</li>
+<li>Enriched each IPv4 address to know things like if they’re public or private addresses</li>
+<li>Filtered only the private addresses, discarding the public ones</li>
+<li>Select only the address part of each item, discaring the other information</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Fabian Martinez Portantier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="../_sources/user/data-manipulation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

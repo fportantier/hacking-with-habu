@@ -104,7 +104,7 @@ can execute the following command:
        // The other network interfaces... //
 
 
-This can be used not only to list your NICs, but also to know if habu is
+This can be used not only to list your NICs, but also to know if Habu is
 detecting correctly all your network interfaces.
 
 
