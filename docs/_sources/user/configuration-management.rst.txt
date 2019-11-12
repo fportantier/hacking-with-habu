@@ -57,7 +57,7 @@ To delete configuration values, you simply need to use the habu.config.del comma
 Storage
 -------
 
-The configuration is stored in the following file: '~/.habu.json', this will be expanded according
+The configuration is stored in the following file: '~/.habu.json', this path will be expanded according
 your environment and operating system.
 
 In Unix-like operating systems, will be like '/home/fportantier/.habu.json'.

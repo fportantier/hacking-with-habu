@@ -219,8 +219,78 @@ take only the items in which we are interested.</p>
 </pre></div>
 </div>
 <p>You can pipe the commands much times has you need, to make more filterings.</p>
+<div class="section" id="available-filters">
+<h3>Available Filters<a class="headerlink" href="#available-filters" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="78%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Description</th>
+<th class="head">Parameter</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>gt</td>
+<td>The value is greater than</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>lt</td>
+<td>The value is lesser than</td>
+<td>x</td>
+</tr>
+<tr class="row-even"><td>eq</td>
+<td>The value is equal to</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>ne</td>
+<td>The value is not equal to</td>
+<td>x</td>
+</tr>
+<tr class="row-even"><td>ge</td>
+<td>The value is greater or equal to</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>le</td>
+<td>The value is lesser or equal to</td>
+<td>x</td>
+</tr>
+<tr class="row-even"><td>in</td>
+<td>The value is in the following list of command separated items</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>contains</td>
+<td>The value contains the following string</td>
+<td>x</td>
+</tr>
+<tr class="row-even"><td>defined</td>
+<td>The field is defined</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>undefined</td>
+<td>The field is not defined</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>true</td>
+<td>The value is True</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>false</td>
+<td>The value is False</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>The operators marked with an ‘x’ in the “Parameter” column needs a parameter to be compared.</p>
+<p>If you see the description of each operator, this is pretty obvious, because you need a parameter
+to compare the values if you’re using operators like “greater than” or “lesser than”.</p>
+<p>But, you don’t need parameters if you are checking if a field is defined or not.</p>
 <p><strong>Note:</strong> The command habu.data.filter can be used to filter any JSON formated text, not only the
 outputs that have been produced by another Habu command.</p>
+</div>
 </div>
 <div class="section" id="data-selection">
 <h2>Data Selection<a class="headerlink" href="#data-selection" title="Permalink to this headline">¶</a></h2>

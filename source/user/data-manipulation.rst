@@ -173,19 +173,29 @@ You can pipe the commands much times has you need, to make more filterings.
 Available Filters
 .................
 
-- 'gt' (greater than)
-- 'lt' (less than)
-- 'eq' (equal to)
-- 'ne' (not equal to)
-- 'ge' (greater or equal than)
-- 'le' (less or equal than)
-- 'in' (in the following comma separated list of items)
-- 'contains' (contains this string)
-- 'defined' (the value is defined)
-- 'undefined' (the value is not defined)
-- 'true': (the value is True)
-- 'false': (the value is False)
+==========  ===================================================================  =========
+Operator    Description                                                          Parameter
+==========  ===================================================================  =========
+gt          The value is greater than                                            x
+lt          The value is lesser than                                             x
+eq          The value is equal to                                                x
+ne          The value is not equal to                                            x
+ge          The value is greater or equal to                                     x
+le          The value is lesser or equal to                                      x
+in          The value is in the following list of command separated items        x
+contains    The value contains the following string                              x
+defined     The field is defined
+undefined   The field is not defined
+true        The value is True
+false       The value is False
+==========  ===================================================================  =========
 
+The operators marked with an 'x' in the "Parameter" column needs a parameter to be compared.
+
+If you see the description of each operator, this is pretty obvious, because you need a parameter
+to compare the values if you're using operators like "greater than" or "lesser than".
+
+But, you don't need parameters if you are checking if a field is defined or not.
 
 **Note:** The command habu.data.filter can be used to filter any JSON formated text, not only the
 outputs that have been produced by another Habu command.

@@ -44,8 +44,8 @@ report the issue through Github (https://github.com/portantier/habu/issues).
 Permissions
 -----------
 
-Most of the Habu tools need elevated permissions to run correctly, so, it's recommended
-to run the tools with the root user (or use sudo/doas) on Unix, or with elevated
+Some of the tools need elevated permissions to run correctly, so, it's recommended
+to run these tools with the root user (or use sudo/doas) on Unix, or with elevated
 permissions through UAC on Microsoft Windows.
 
 
