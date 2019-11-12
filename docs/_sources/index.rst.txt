@@ -100,6 +100,7 @@ you a lot of concepts about hacking.
    user/first-steps
    user/know-your-environment
    user/data-manipulation
+   user/configuration-management
 
 How the contents will be (draft)
 
