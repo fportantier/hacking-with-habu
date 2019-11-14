@@ -39,6 +39,14 @@ The JSON output prints the whole Shodan API response.
 The CSV output it's good to process with other tools/script or save to a database.
 
 
+Cache
+-----
+
+By default, the command uses a requests cache, to no send repeated queries to the Shodan API.
+
+If you want to disable the cache, use the option '--no-cache'.
+
+
 Scan Open Ports with Nmap
 -------------------------
 

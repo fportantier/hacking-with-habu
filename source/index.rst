@@ -105,6 +105,7 @@ you a lot of concepts about hacking.
    user/domain-information
    user/ip-address-information
    user/shodan-api
+   user/http-technology-detection
 
 TODO:
 

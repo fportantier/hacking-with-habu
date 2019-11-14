@@ -16,6 +16,7 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HTTP Technology Detection" href="http-technology-detection.html" />
     <link rel="prev" title="IP Address Information" href="ip-address-information.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -48,9 +49,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shodan API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#api-key-configuration">API Key Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scan-open-ports-with-nmap">Scan Open Ports with Nmap</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="http-technology-detection.html">HTTP Technology Detection</a></li>
 </ul>
 
 <div class="relations">
@@ -58,6 +61,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="ip-address-information.html" title="previous chapter">IP Address Information</a></li>
+      <li>Next: <a href="http-technology-detection.html" title="next chapter">HTTP Technology Detection</a></li>
   </ul></li>
 </ul>
 </div>
@@ -107,11 +111,16 @@ open_ports               tcp/443, tcp/80
 <p>The JSON output prints the whole Shodan API response.</p>
 <p>The CSV output it’s good to process with other tools/script or save to a database.</p>
 </div>
+<div class="section" id="cache">
+<h2>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<p>By default, the command uses a requests cache, to no send repeated queries to the Shodan API.</p>
+<p>If you want to disable the cache, use the option ‘–no-cache’.</p>
+</div>
 <div class="section" id="scan-open-ports-with-nmap">
 <h2>Scan Open Ports with Nmap<a class="headerlink" href="#scan-open-ports-with-nmap" title="Permalink to this headline">¶</a></h2>
 <p>If you want to use Nmap to scan only the ports that Shodan sees has open, you can
 use the ‘nmap’ output format as the port specification, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nmap -p $(habu.shodan --format nmap 216.58.222.36) -v 216.58.222.36
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nmap -v -p $(habu.shodan --format nmap 216.58.222.36) 216.58.222.36
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-13 23:33 -03
 Initiating Ping Scan at 23:33
 Scanning 216.58.222.36 [2 ports]

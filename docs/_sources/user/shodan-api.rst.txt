@@ -39,6 +39,14 @@ The JSON output prints the whole Shodan API response.
 The CSV output it's good to process with other tools/script or save to a database.
 
 
+Cache
+-----
+
+By default, the command uses a requests cache, to no send repeated queries to the Shodan API.
+
+If you want to disable the cache, use the option '--no-cache'.
+
+
 Scan Open Ports with Nmap
 -------------------------
 
@@ -47,7 +55,7 @@ use the 'nmap' output format as the port specification, like this:
 
 ::
 
-   $ nmap -p $(habu.shodan --format nmap 216.58.222.36) -v 216.58.222.36
+   $ nmap -v -p $(habu.shodan --format nmap 216.58.222.36) 216.58.222.36
    Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-13 23:33 -03
    Initiating Ping Scan at 23:33
    Scanning 216.58.222.36 [2 ports]

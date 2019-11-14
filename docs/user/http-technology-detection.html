@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTTP Technology Detection &#8212; HwH  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Shodan API" href="shodan-api.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">HwH</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-manipulation.html">Data Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration-management.html">Configuration Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nmap-related-commands.html">Nmap Related Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain-information.html">Domain Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ip-address-information.html">IP Address Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shodan-api.html">Shodan API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HTTP Technology Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-was-detected-each-technology">How Was Detected Each Technology?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="shodan-api.html" title="previous chapter">Shodan API</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="http-technology-detection">
+<h1>HTTP Technology Detection<a class="headerlink" href="#http-technology-detection" title="Permalink to this headline">¶</a></h1>
+<p>If you want to know which technologies are in use by a web site, you can use the
+habu.http.tech command, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.http.tech https://woocommerce.com
+Google Tag Manager       unknown
+MySQL                    unknown
+Nginx                    unknown
+PHP                      unknown
+Prototype                unknown
+RequireJS                unknown
+WooCommerce              3.8.0
+WordPress                5.2.4
+Yoast SEO                10.0.1
+</pre></div>
+</div>
+<p>This command only makes one HTTP request, so it’s very stealthy.</p>
+<p>The database used to detect the technologies it’s the ‘apps.json’ file, by the
+Wappalyzer project (<a class="reference external" href="https://www.wappalyzer.com">https://www.wappalyzer.com</a>).</p>
+<div class="section" id="how-was-detected-each-technology">
+<h2>How Was Detected Each Technology?<a class="headerlink" href="#how-was-detected-each-technology" title="Permalink to this headline">¶</a></h2>
+<p>If you want to know that, use the ‘-v’ or ‘–verbose’ option, and the information
+will be shown, like in the following example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.http.tech -v https://woocommerce.com
+Google Tag Manager detected by HTML body with regex googletagmanager\.com/ns\.html[^&gt;]+&gt;&lt;/iframe&gt;
+Nginx detected by Server HTTP header = nginx
+Prototype detected by HTML body with regex (?:prototype|protoaculous)(?:-([\d.]*[\d]))?.*\.js
+RequireJS detected by HTML body with regex require.*\.js
+WooCommerce detected by meta generator tag with regex WooCommerce ([\d.]+)
+The version detected is 3.8.0
+WordPress detected by link HTTP header = &lt;https://woocommerce.com/wp-json/&gt;; rel=&quot;https://api.w.org/&quot;
+WordPress detected by HTML body with regex /wp-(?:content|includes)/
+WordPress detected by HTML body with regex &lt;link[^&gt;]+s\d+\.wp\.com
+WordPress detected by meta generator tag with regex ^WordPress ?([\d.]+)?
+The version detected is 5.2.4
+Yoast SEO detected by HTML body with regex &lt;!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -
+The version detected is 10.0.1
+PHP detected because implied by WordPress
+MySQL detected because implied by WordPress
+Google Tag Manager       unknown
+MySQL                    unknown
+Nginx                    unknown
+PHP                      unknown
+Prototype                unknown
+RequireJS                unknown
+WooCommerce              3.8.0
+WordPress                5.2.4
+Yoast SEO                10.0.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="cache">
+<h2>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<p>By default, the command uses a requests cache, to no send repeated HTTP requests.</p>
+<p>If you want to disable the cache, use the option ‘–no-cache’.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Fabian Martinez Portantier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="../_sources/user/http-technology-detection.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

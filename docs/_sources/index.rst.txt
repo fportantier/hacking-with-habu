@@ -105,17 +105,16 @@ you a lot of concepts about hacking.
    user/domain-information
    user/ip-address-information
    user/shodan-api
+   user/http-technology-detection
 
 TODO:
 
 - Development Overview
 - Installation (detailed)
-- Domain Information
 - Subdomain Discovery
 - Web Technologies Enumeration
 - Integration With External Services
    - AsyDNS
-   - Shodan
    - VirusTotal
 - Address Resolution Protocol (ARP)
    - ping
