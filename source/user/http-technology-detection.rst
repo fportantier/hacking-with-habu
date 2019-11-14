@@ -15,6 +15,7 @@ habu.http.tech command, like this:
    RequireJS                unknown
    WooCommerce              3.8.0
    WordPress                5.2.4
+   WordPress VIP            unknown
    Yoast SEO                10.0.1
 
 

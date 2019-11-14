@@ -15,6 +15,7 @@ habu.http.tech command, like this:
    RequireJS                unknown
    WooCommerce              3.8.0
    WordPress                5.2.4
+   WordPress VIP            unknown
    Yoast SEO                10.0.1
 
 
@@ -38,16 +39,17 @@ will be shown, like in the following example:
    Prototype detected by HTML body with regex (?:prototype|protoaculous)(?:-([\d.]*[\d]))?.*\.js
    RequireJS detected by HTML body with regex require.*\.js
    WooCommerce detected by meta generator tag with regex WooCommerce ([\d.]+)
-   The version detected is 3.8.0
    WordPress detected by link HTTP header = <https://woocommerce.com/wp-json/>; rel="https://api.w.org/"
    WordPress detected by HTML body with regex /wp-(?:content|includes)/
    WordPress detected by HTML body with regex <link[^>]+s\d+\.wp\.com
    WordPress detected by meta generator tag with regex ^WordPress ?([\d.]+)?
-   The version detected is 5.2.4
+   WordPress VIP detected by x-powered-by HTTP header = WordPress.com VIP <https://wpvip.com>
    Yoast SEO detected by HTML body with regex <!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -
-   The version detected is 10.0.1
+   WordPress detected because implied by WooCommerce
    PHP detected because implied by WordPress
    MySQL detected because implied by WordPress
+   WordPress detected because implied by WordPress VIP
+   WordPress detected because implied by Yoast SEO
    Google Tag Manager       unknown
    MySQL                    unknown
    Nginx                    unknown
@@ -56,6 +58,7 @@ will be shown, like in the following example:
    RequireJS                unknown
    WooCommerce              3.8.0
    WordPress                5.2.4
+   WordPress VIP            unknown
    Yoast SEO                10.0.1
 
 

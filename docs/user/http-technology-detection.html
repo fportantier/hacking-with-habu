@@ -92,6 +92,7 @@ Prototype                unknown
 RequireJS                unknown
 WooCommerce              3.8.0
 WordPress                5.2.4
+WordPress VIP            unknown
 Yoast SEO                10.0.1
 </pre></div>
 </div>
@@ -108,16 +109,17 @@ Nginx detected by Server HTTP header = nginx
 Prototype detected by HTML body with regex (?:prototype|protoaculous)(?:-([\d.]*[\d]))?.*\.js
 RequireJS detected by HTML body with regex require.*\.js
 WooCommerce detected by meta generator tag with regex WooCommerce ([\d.]+)
-The version detected is 3.8.0
 WordPress detected by link HTTP header = &lt;https://woocommerce.com/wp-json/&gt;; rel=&quot;https://api.w.org/&quot;
 WordPress detected by HTML body with regex /wp-(?:content|includes)/
 WordPress detected by HTML body with regex &lt;link[^&gt;]+s\d+\.wp\.com
 WordPress detected by meta generator tag with regex ^WordPress ?([\d.]+)?
-The version detected is 5.2.4
+WordPress VIP detected by x-powered-by HTTP header = WordPress.com VIP &lt;https://wpvip.com&gt;
 Yoast SEO detected by HTML body with regex &lt;!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -
-The version detected is 10.0.1
+WordPress detected because implied by WooCommerce
 PHP detected because implied by WordPress
 MySQL detected because implied by WordPress
+WordPress detected because implied by WordPress VIP
+WordPress detected because implied by Yoast SEO
 Google Tag Manager       unknown
 MySQL                    unknown
 Nginx                    unknown
@@ -126,6 +128,7 @@ Prototype                unknown
 RequireJS                unknown
 WooCommerce              3.8.0
 WordPress                5.2.4
+WordPress VIP            unknown
 Yoast SEO                10.0.1
 </pre></div>
 </div>
