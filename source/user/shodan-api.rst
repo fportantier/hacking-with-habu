@@ -1,0 +1,76 @@
+Shodan API
+==========
+
+You can save your Shodan API Key (https://www.shodan.io) to use it with Habu.
+
+
+API Key Configuration
+---------------------
+
+The configuration it's really simple. Use the following command with your API Key:
+
+::
+
+   $ habu.config.set SHODAN_APIKEY put-here-your-shodan-api-key
+
+
+Usage
+-----
+
+The command habu.shodan allows you to query for a specific IP address, like this:
+
+::
+
+   $ habu.shodan 216.58.222.36
+   asn                      AS15169
+   isp                      Google
+   hostnames                eze04s06-in-f4.1e100.net, gru09s17-in-f36.1e100.net
+   country_code             US
+   region_code              CA
+   city                     Mountain View
+   org                      Google
+   open_ports               tcp/443, tcp/80
+
+
+It supports four output formats: txt (default), csv, json and nmap (will be shown below).
+
+The JSON output prints the whole Shodan API response.
+
+The CSV output it's good to process with other tools/script or save to a database.
+
+
+Scan Open Ports with Nmap
+-------------------------
+
+If you want to use Nmap to scan only the ports that Shodan sees has open, you can
+use the 'nmap' output format as the port specification, like this:
+
+::
+
+   $ nmap -v -p $(habu.shodan --format nmap 216.58.222.36) 216.58.222.36
+   Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-13 23:33 -03
+   Initiating Ping Scan at 23:33
+   Scanning 216.58.222.36 [2 ports]
+   Completed Ping Scan at 23:33, 0.01s elapsed (1 total hosts)
+   Initiating Parallel DNS resolution of 1 host. at 23:33
+   Completed Parallel DNS resolution of 1 host. at 23:33, 0.01s elapsed
+   Initiating Connect Scan at 23:33
+   Scanning eze04s06-in-f4.1e100.net (216.58.222.36) [2 ports]
+   Discovered open port 443/tcp on 216.58.222.36
+   Discovered open port 80/tcp on 216.58.222.36
+   Completed Connect Scan at 23:33, 0.04s elapsed (2 total ports)
+   Nmap scan report for eze04s06-in-f4.1e100.net (216.58.222.36)
+   Host is up (0.020s latency).
+
+   PORT    STATE SERVICE
+   80/tcp  open  http
+   443/tcp open  https
+
+   Read data files from: /usr/bin/../share/nmap
+   Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
+
+
+**Note:** Obviously, you can customize the Nmap options. For example, to detect
+operating systems and service versions.
+
+

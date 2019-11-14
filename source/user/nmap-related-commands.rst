@@ -29,6 +29,7 @@ The command habu.nmap.ports gives you the list of ports that was scanned:
    $ habu.nmap.ports /tmp/scan.nmap 
    21,22,23,25,80,110,143,443,445,3389
 
+
 This can be helpful if you want to run a new scan, but with different options.
 
 
@@ -42,6 +43,7 @@ The command habu.nmap.open shows the ports that has been result open for the nma
 
    $ habu.nmap.open /tmp/scan.nmap 
    80,443
+
 
 This can be helpful to the same reasons has the habu.nmap.ports.
 

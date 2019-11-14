@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>First Steps with Habu &#8212; HwH  documentation</title>
+    <title>IP Address Information &#8212; HwH  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Know Your Environment" href="know-your-environment.html" />
-    <link rel="prev" title="Hacking with Habu" href="../index.html" />
+    <link rel="next" title="Shodan API" href="shodan-api.html" />
+    <link rel="prev" title="Domain Information" href="domain-information.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -39,13 +39,13 @@
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">First Steps with Habu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-manipulation.html">Data Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration-management.html">Configuration Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmap-related-commands.html">Nmap Related Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domain-information.html">Domain Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ip-address-information.html">IP Address Information</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IP Address Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shodan-api.html">Shodan API</a></li>
 </ul>
 
@@ -53,8 +53,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Hacking with Habu</a></li>
-      <li>Next: <a href="know-your-environment.html" title="next chapter">Know Your Environment</a></li>
+      <li>Previous: <a href="domain-information.html" title="previous chapter">Domain Information</a></li>
+      <li>Next: <a href="shodan-api.html" title="next chapter">Shodan API</a></li>
   </ul></li>
 </ul>
 </div>
@@ -76,25 +76,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="first-steps-with-habu">
-<h1>First Steps with Habu<a class="headerlink" href="#first-steps-with-habu" title="Permalink to this headline">¶</a></h1>
-<p>Habu has a lot of commands that are named with the following format:</p>
-<p>habu.&lt;namespace&gt;.&lt;command&gt;</p>
-<p>So, you can get the complete list of commands using the tab completion feature of all shells.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.&lt;TAB&gt;&lt;TAB&gt;
-habu.arp.ping            habu.config.set          habu.decrypt.gppref      habu.extract.hostname    habu.http.headers        habu.karma               habu.select              habu.usercheck
-habu.arp.poison          habu.config.show         habu.dhcp.discover       habu.extract.ipv4        habu.http.options        habu.karma.bulk          habu.server.ftp          habu.vhosts
-habu.arp.sniff           habu.contest             habu.dhcp.starvation     habu.fernet              habu.interfaces          habu.land                habu.shodan              habu.virustotal
-habu.asydns              habu.crack.luhn          habu.dns.lookup.forward  habu.fernet.genkey       habu.ip                  habu.nc                  habu.shodan.open         habu.web.report
-habu.b64                 habu.crack.snmp          habu.dns.lookup.reverse  habu.filter              habu.ip2asn              habu.nmap.excluded       habu.shodan.query        habu.web.screenshot
-habu.cert.clone          habu.crtsh               habu.eicar               habu.forkbomb            habu.ip.geolocation      habu.nmap.open           habu.synflood            habu.web.tech
-habu.certclone           habu.cve.2018.9995       habu.expand              habu.gateway.find        habu.ip.internal         habu.nmap.ports          habu.tcpflags            habu.whois.domain
-habu.cert.names          habu.cymon.ip            habu.extract.domain      habu.hasher              habu.isn                 habu.ping                habu.tcpscan             habu.whois.ip
-habu.config.del          habu.cymon.ip.timeline   habu.extract.email       habu.host                habu.jshell              habu.protoscan           habu.traceroute          habu.xor
+  <div class="section" id="ip-address-information">
+<h1>IP Address Information<a class="headerlink" href="#ip-address-information" title="Permalink to this headline">¶</a></h1>
+<p>Now, if you have some IP addresses to check, you can use the habu.whois.ip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.whois.ip 8.8.4.4
+asn                      15169
+asn_registry             arin
+asn_cidr                 8.8.4.0/24
+asn_country_code         US
+asn_description          GOOGLE - Google LLC, US
+asn_date                 1992-12-01
 </pre></div>
 </div>
-<p>Command names and namespaces can change, so, trust in the list printed by your own execution.</p>
-<p>The reason to use namespaces is to organize the commands and make easy to find them.</p>
+<p>Like with the habu.whois.domain command, you can output in JSON and CSV formats.</p>
+<p><strong>Note:</strong> The JSON output can contain additional information, so, check it if you see that
+some important data is missing in the text/csv outputs.</p>
 </div>
 
 
@@ -111,7 +107,7 @@ habu.config.del          habu.cymon.ip.timeline   habu.extract.email       habu.
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
-      <a href="../_sources/user/first-steps.rst.txt"
+      <a href="../_sources/user/ip-address-information.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

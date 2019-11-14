@@ -102,18 +102,18 @@ you a lot of concepts about hacking.
    user/data-manipulation
    user/configuration-management
    user/nmap-related-commands
+   user/domain-information
+   user/ip-address-information
+   user/shodan-api
 
 TODO:
 
 - Development Overview
 - Installation (detailed)
-- Nmap Scan Parsing
-- Domain Information
 - Subdomain Discovery
 - Web Technologies Enumeration
 - Integration With External Services
    - AsyDNS
-   - Shodan
    - VirusTotal
 - Address Resolution Protocol (ARP)
    - ping
