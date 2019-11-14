@@ -107,7 +107,7 @@ you a lot of concepts about hacking.
    user/shodan-api
    user/http-technology-detection
 
-TODO:
+TODO (well we written soon):
 
 - Development Overview
 - Installation (detailed)
@@ -149,9 +149,6 @@ TODO:
    - Data about Domain Names
 Protocol Servers
    - Fake FTP Server
-
-
-
 
 
 The Development Guide
