@@ -28,7 +28,7 @@ Development
 -----------
 
 If you want to collaborate with the project or simply learn how Habu is developed,
-read the "Development Guide".
+read the "Development Guide". (not written yet)
 
 
 Operating System Compatibility and Issues
