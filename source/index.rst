@@ -151,21 +151,10 @@ TODO (well we written soon):
    - Fake FTP Server
 
 
-The Development Guide
----------------------
-
-This part of the documentation explains three things:
-
-1. How Habu is developed
-2. How Habu can be used to develop other tools
-3. How you can contribute with the project
-
-
 Command Reference
 -----------------
 
-This part of the documentation contains the complete help text of each tool and is the
-recommended source of information if you want to know how to use a specific tool.
+The complete command reference can be found in https://github.com/fportantier/habu/blob/master/README.rst#commands-index
 
 
 Indices and tables
