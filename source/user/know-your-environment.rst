@@ -15,7 +15,7 @@ the following command:
 
 ::
 
-   $ habu.ip
+   $ habu.ip.public
    80.219.53.185
 
 
@@ -41,7 +41,7 @@ To know what services you can access, you can use the following command:
 
 ::
 
-   $ habu.contest
+   $ habu.net.contest
    IP:    True
    DNS:   True
    FTP:   True

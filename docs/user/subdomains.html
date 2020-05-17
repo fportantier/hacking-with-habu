@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Subdomains &#8212; HwH  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Subdomains</a><ul>
+<li><a class="reference internal" href="#zone-transfer">Zone Transfer</a></li>
+<li><a class="reference internal" href="#certificate-transparency-logs">Certificate Transparency Logs</a></li>
+<li><a class="reference internal" href="#certificates-on-open-ports">Certificates On Open Ports</a></li>
+<li><a class="reference internal" href="#website-links">Website links</a></li>
+<li><a class="reference internal" href="#dns-brute-force">DNS brute force</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user/subdomains.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="subdomains">
+<h1>Subdomains<a class="headerlink" href="#subdomains" title="Permalink to this headline">¶</a></h1>
+<p>If you’re searching information about a domain, one of the most important
+things to do if find which subdomains are defined.</p>
+<p>To do that, you can use habu.fqdn.finder, that searchs the valid subdomains
+using various techniques:</p>
+<div class="section" id="zone-transfer">
+<h2>Zone Transfer<a class="headerlink" href="#zone-transfer" title="Permalink to this headline">¶</a></h2>
+<p>Every DNS server has a functionality called “zone transfer” that allows to
+download the entire “zone file”. This is used to synchronize the zones
+between various DNS servers.</p>
+<p>If this feature is not restricted to the “official” servers only, every
+person on the internet can download the entire zone of a domain, with
+all the valid subdomains.</p>
+<p>This is a vulnerability based on a bad configuration.</p>
+<p>habu.fqdn.finder tryies to make a zone transfer as the first thing, because
+if it’s successful, none of the following techniques are needed.</p>
+<p><strong>Note:</strong> habu.fqdn.finder tryies the zone transfer with the complete list
+of name servers for the domain, because sometimes only one of the servers
+has the zone transfers publicly available, but this is sufficient to get
+the complete zone.</p>
+</div>
+<div class="section" id="certificate-transparency-logs">
+<h2>Certificate Transparency Logs<a class="headerlink" href="#certificate-transparency-logs" title="Permalink to this headline">¶</a></h2>
+<p>Uses the site <a class="reference external" href="https://crt.sh/">https://crt.sh/</a> to know what certificates was emitted for
+the domain.</p>
+</div>
+<div class="section" id="certificates-on-open-ports">
+<h2>Certificates On Open Ports<a class="headerlink" href="#certificates-on-open-ports" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> Maybe you can think “why check this if you’re already checking the
+certificate transparency logs?”, but the CT log is only useful for certificates
+issued by “public” certificate authorities, and a lot of organizations use
+self-signed certificates or internal certificate authorities. So, this check is
+complementary to the CT log.</p>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li>Connect to specified ports, obtain SSL certificates and get FQDNs from them</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="website-links">
+<h2>Website links<a class="headerlink" href="#website-links" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li>Connect to websites and get FQDNs based on the website links</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="dns-brute-force">
+<h2>DNS brute force<a class="headerlink" href="#dns-brute-force" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple" start="5">
+<li>DNS Brute Force for common names</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Fabian Martinez Portantier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="../_sources/user/subdomains.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

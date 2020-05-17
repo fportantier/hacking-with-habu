@@ -6,35 +6,31 @@ Installation of Habu
 This part of the documentation covers the installation of Habu.
 The first step to using any software package is getting it properly installed.
 
-$ pipenv install habu
----------------------
+$ pip3 install habu
+-------------------
 
-To install Habu, simply run this simple command in your terminal of choice::
+To install Habu, run this simple command in your terminal of choice::
 
-    $ pipenv install habu
+    $ pip3 install habu
 
-If you don't have `pipenv <http://pipenv.org/>`_ installed, head over to the
-Pipenv website for installation instructions. Or, if you prefer to just use
-pip and don't have it installed, `this Python installation guide <https://docs.python-guide.org/starting/installation/>`_
-can guide you through the process.
+**Note:** The "pip3" command can be named "pip" depending on your distribution.
 
 Get the Source Code
 -------------------
 
 Habu is actively developed on GitHub, where the code is
-`always available <https://github.com/portantier/habu>`_.
+`always available <https://github.com/fportantier/habu>`_.
 
 You can either clone the public repository::
 
-    $ git clone git://github.com/portantier/habu
+    $ git clone git://github.com/fportantier/habu
 
-Or, download the `tarball <https://github.com/portantier/habu/tarball/master>`_::
+Or, download the `tarball <https://github.com/fportantier/habu/tarball/master>`_::
 
-    $ curl -OL https://github.com/portantier/habu/tarball/master
+    $ curl -OL https://github.com/fportantier/habu/tarball/master
     # optionally, zipball is also available (for Windows users).
 
-Once you have a copy of the source, you can embed it in your own Python
-package, or install it into your site-packages easily::
+Once you have a copy of the source, you can install it with::
 
     $ cd habu
-    $ pip install .
+    $ pip3 install .

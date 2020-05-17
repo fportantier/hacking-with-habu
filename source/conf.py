@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'HwH'
-copyright = '2019, Fabian Martinez Portantier'
+copyright = '2020, Fabian Martinez Portantier'
 author = 'Fabian Martinez Portantier'
 
 # The short X.Y version
@@ -84,7 +84,7 @@ html_theme_options = {
     'page_width' : '100%',
     'fixed_sidebar' : True,
     'show_related' : True,
-    'sidebar_collapse' : True,
+    #'sidebar_collapse' : True,
     'sidebar_width': '350px',
 }
 

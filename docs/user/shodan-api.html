@@ -4,16 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Shodan API &#8212; HwH  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="HTTP Technology Detection" href="http-technology-detection.html" />
@@ -23,39 +30,22 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head><body>
+  </head>
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">HwH</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-manipulation.html">Data Manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration-management.html">Configuration Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nmap-related-commands.html">Nmap Related Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="domain-information.html">Domain Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ip-address-information.html">IP Address Information</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Shodan API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#api-key-configuration">API Key Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scan-open-ports-with-nmap">Scan Open Ports with Nmap</a></li>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Shodan API</a><ul>
+<li><a class="reference internal" href="#api-key-configuration">API Key Configuration</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#cache">Cache</a></li>
+<li><a class="reference internal" href="#scan-open-ports-with-nmap">Scan Open Ports with Nmap</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="http-technology-detection.html">HTTP Technology Detection</a></li>
 </ul>
-
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -65,16 +55,21 @@
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user/shodan-api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -89,14 +84,14 @@
 <div class="section" id="api-key-configuration">
 <h2>API Key Configuration<a class="headerlink" href="#api-key-configuration" title="Permalink to this headline">¶</a></h2>
 <p>The configuration it’s really simple. Use the following command with your API Key:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.config.set SHODAN_APIKEY put-here-your-shodan-api-key
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.config.set SHODAN_APIKEY put-here-your-shodan-api-key
 </pre></div>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>The command habu.shodan allows you to query for a specific IP address, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.shodan 216.58.222.36
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.shodan 216.58.222.36
 asn                      AS15169
 isp                      Google
 hostnames                eze04s06-in-f4.1e100.net, gru09s17-in-f36.1e100.net
@@ -120,7 +115,7 @@ open_ports               tcp/443, tcp/80
 <h2>Scan Open Ports with Nmap<a class="headerlink" href="#scan-open-ports-with-nmap" title="Permalink to this headline">¶</a></h2>
 <p>If you want to use Nmap to scan only the ports that Shodan sees has open, you can
 use the ‘nmap’ output format as the port specification, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nmap -v -p $(habu.shodan --format nmap 216.58.222.36) 216.58.222.36
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ nmap -v -p $(habu.shodan --format nmap 216.58.222.36) 216.58.222.36
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-13 23:33 -03
 Initiating Ping Scan at 23:33
 Scanning 216.58.222.36 [2 ports]
@@ -155,10 +150,10 @@ operating systems and service versions.</p>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2019, Fabian Martinez Portantier.
+      &copy;2020, Fabian Martinez Portantier.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |

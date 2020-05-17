@@ -4,16 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hacking with Habu &#8212; HwH  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="First Steps with Habu" href="user/first-steps.html" />
@@ -22,33 +29,29 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head><body>
+  </head>
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">HwH</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="user/first-steps.html">First Steps with Habu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/know-your-environment.html">Know Your Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/data-manipulation.html">Data Manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/configuration-management.html">Configuration Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/nmap-related-commands.html">Nmap Related Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/domain-information.html">Domain Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/ip-address-information.html">IP Address Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/shodan-api.html">Shodan API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/http-technology-detection.html">HTTP Technology Detection</a></li>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hacking with Habu</a><ul>
+<li><a class="reference internal" href="#development">Development</a></li>
+<li><a class="reference internal" href="#operating-system-compatibility-and-issues">Operating System Compatibility and Issues</a></li>
+<li><a class="reference internal" href="#permissions">Permissions</a></li>
+<li><a class="reference internal" href="#quick-installation-or-upgrade">Quick Installation or Upgrade</a></li>
+<li><a class="reference internal" href="#this-guide">This Guide</a></li>
+<li><a class="reference internal" href="#usage-videos">Usage Videos</a></li>
+<li><a class="reference internal" href="#telegram-group">Telegram Group</a></li>
+<li><a class="reference internal" href="#the-user-guide">The User Guide</a></li>
+<li><a class="reference internal" href="#the-development-guide">The Development Guide</a></li>
+<li><a class="reference internal" href="#command-reference">Command Reference</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -57,16 +60,21 @@
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -89,14 +97,14 @@
 <div class="section" id="development">
 <h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
 <p>If you want to collaborate with the project or simply learn how Habu is developed,
-read the “Development Guide”.</p>
+read the “Development Guide”. (not written yet)</p>
 </div>
 <div class="section" id="operating-system-compatibility-and-issues">
 <h2>Operating System Compatibility and Issues<a class="headerlink" href="#operating-system-compatibility-and-issues" title="Permalink to this headline">¶</a></h2>
 <p>Habu is developed with GNU/Linux systems in mind, but with a lot of efforts to make
 it compatible with any Unix-like system and even with Microsoft Windows.</p>
 <p>Please, if you find that some tool doesn’t work with your OS, don’t hesitate to
-report the issue through Github (<a class="reference external" href="https://github.com/portantier/habu/issues">https://github.com/portantier/habu/issues</a>).</p>
+report the issue through Github (<a class="reference external" href="https://github.com/fportantier/habu/issues">https://github.com/fportantier/habu/issues</a>).</p>
 </div>
 <div class="section" id="permissions">
 <h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
@@ -106,7 +114,7 @@ permissions through UAC on Microsoft Windows.</p>
 </div>
 <div class="section" id="quick-installation-or-upgrade">
 <h2>Quick Installation or Upgrade<a class="headerlink" href="#quick-installation-or-upgrade" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install --upgrade habu
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip3 install --upgrade habu
 $ habu.version
 0.1.30
 </pre></div>
@@ -181,7 +189,7 @@ you a lot of concepts about hacking.</p>
 </li>
 </ul>
 </div>
-<p>TODO:</p>
+<p>TODO (well we written soon):</p>
 <ul class="simple">
 <li>Development Overview</li>
 <li>Installation (detailed)</li>
@@ -257,14 +265,15 @@ you a lot of concepts about hacking.</p>
 </dd>
 </dl>
 </li>
-</ul>
-<dl class="docutils">
+<li><dl class="first docutils">
 <dt>Protocol Servers</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Fake FTP Server</li>
 </ul>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="the-development-guide">
 <h2>The Development Guide<a class="headerlink" href="#the-development-guide" title="Permalink to this headline">¶</a></h2>
@@ -297,10 +306,10 @@ recommended source of information if you want to know how to use a specific tool
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2019, Fabian Martinez Portantier.
+      &copy;2020, Fabian Martinez Portantier.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |

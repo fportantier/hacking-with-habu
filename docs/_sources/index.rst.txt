@@ -28,7 +28,7 @@ Development
 -----------
 
 If you want to collaborate with the project or simply learn how Habu is developed,
-read the "Development Guide".
+read the "Development Guide". (not written yet)
 
 
 Operating System Compatibility and Issues
@@ -38,7 +38,7 @@ Habu is developed with GNU/Linux systems in mind, but with a lot of efforts to m
 it compatible with any Unix-like system and even with Microsoft Windows.
 
 Please, if you find that some tool doesn't work with your OS, don't hesitate to
-report the issue through Github (https://github.com/portantier/habu/issues).
+report the issue through Github (https://github.com/fportantier/habu/issues).
 
 
 Permissions
@@ -107,7 +107,7 @@ you a lot of concepts about hacking.
    user/shodan-api
    user/http-technology-detection
 
-TODO:
+TODO (well we written soon):
 
 - Development Overview
 - Installation (detailed)
@@ -147,11 +147,8 @@ TODO:
    - Web Headers
    - Data about IP Addresses
    - Data about Domain Names
-Protocol Servers
+- Protocol Servers
    - Fake FTP Server
-
-
-
 
 
 The Development Guide
@@ -177,3 +174,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

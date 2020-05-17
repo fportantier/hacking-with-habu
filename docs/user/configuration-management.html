@@ -4,16 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Configuration Management &#8212; HwH  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Nmap Related Commands" href="nmap-related-commands.html" />
@@ -23,39 +30,22 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head><body>
+  </head>
+  <body>
   <div class="document">
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">HwH</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First Steps with Habu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="know-your-environment.html">Know Your Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-manipulation.html">Data Manipulation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#show">Show</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set">Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#delete">Delete</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a></li>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration Management</a><ul>
+<li><a class="reference internal" href="#show">Show</a></li>
+<li><a class="reference internal" href="#set">Set</a></li>
+<li><a class="reference internal" href="#delete">Delete</a></li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nmap-related-commands.html">Nmap Related Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="domain-information.html">Domain Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ip-address-information.html">IP Address Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shodan-api.html">Shodan API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="http-technology-detection.html">HTTP Technology Detection</a></li>
 </ul>
-
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -65,16 +55,21 @@
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user/configuration-management.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -92,7 +87,7 @@ examples.</p>
 <div class="section" id="show">
 <h2>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
 <p>To show the current configuration, you can use the habu.config.show command, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.config.show
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.config.show
 {
  &quot;SHODAN_APIKEY&quot;: &quot;*************&quot;,
  &quot;VIRUSTOTAL_APIKEY&quot;: &quot;*************&quot;
@@ -101,7 +96,7 @@ examples.</p>
 </div>
 <p>By default, all the configuration values that has the work “key” are masked. If you need to
 you these values too, use the ‘-k’ parameter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.config.show -k
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.config.show -k
 {
  &quot;SHODAN_APIKEY&quot;: &quot;Some-key-that-is-not-my-key&quot;,
  &quot;VIRUSTOTAL_APIKEY&quot;: &quot;Another-invalid-key-for-this-example&quot;
@@ -112,14 +107,14 @@ you these values too, use the ‘-k’ parameter:</p>
 <div class="section" id="set">
 <h2>Set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h2>
 <p>To set configuration values, you simply need to use the habu.config.set command, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.config.set SOME_OPTION some-value
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.config.set SOME_OPTION some-value
 </pre></div>
 </div>
 </div>
 <div class="section" id="delete">
 <h2>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p>To delete configuration values, you simply need to use the habu.config.del command, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ habu.config.del SOME_OPTION
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ habu.config.del SOME_OPTION
 </pre></div>
 </div>
 </div>
@@ -139,10 +134,10 @@ your environment and operating system.</p>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2019, Fabian Martinez Portantier.
+      &copy;2020, Fabian Martinez Portantier.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |

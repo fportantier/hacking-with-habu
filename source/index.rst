@@ -38,7 +38,7 @@ Habu is developed with GNU/Linux systems in mind, but with a lot of efforts to m
 it compatible with any Unix-like system and even with Microsoft Windows.
 
 Please, if you find that some tool doesn't work with your OS, don't hesitate to
-report the issue through Github (https://github.com/portantier/habu/issues).
+report the issue through Github (https://github.com/fportantier/habu/issues).
 
 
 Permissions
@@ -147,7 +147,7 @@ TODO (well we written soon):
    - Web Headers
    - Data about IP Addresses
    - Data about Domain Names
-Protocol Servers
+- Protocol Servers
    - Fake FTP Server
 
 
@@ -174,3 +174,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
