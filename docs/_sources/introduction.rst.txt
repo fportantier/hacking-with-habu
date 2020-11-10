@@ -16,9 +16,9 @@ Quick Start
 
 ::
 
-   $ pip3 install habu
+   $ python3 -m pip install --user git+https://github.com/fportantier/habu
    $ habu.version
-   0.1.30
+   0.1.37
 
 
 Development Philosophy
